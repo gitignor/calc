@@ -1,0 +1,192 @@
+$default-font-size: 1.6rem;
+$color-red: #ff0000;
+$color-bg: #EBECF0;
+$color-shadow: #BABECC;
+$color-white: #FFF;
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    background-color: $color-bg;
+}
+
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: $default-font-size;
+    line-height: 1.7;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 1rem;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 1.5rem;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.form {
+    border-radius: 5px;
+    padding: 2rem;
+
+    &__header {
+        font-size: 2.4rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    &__input {
+        width: 100%;
+        font-family: inherit;
+        font-size: inherit;
+        margin-bottom: $default-font-size/2;
+        padding: $default-font-size;
+        border: 0;
+        outline: 0;
+        border-radius: $default-font-size*20;
+        background-color: $color-bg;
+        text-shadow: 1px 1px 0 $color-white;
+        box-shadow: inset 2px 2px 5px $color-shadow, inset -5px -5px 10px $color-white;
+        transition: all 0.2s ease-in-out;
+        appearance: none;
+        -webkit-appearance: none;
+
+        &:focus {
+            box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+        }
+
+        &--error {
+            border: 1px solid $color-red;
+            background-color: $color-white;
+
+
+            &:focus {
+                box-shadow: inset 1px 1px 5px $color-red, inset -2px -2px 3px $color-red;
+            }
+
+        }
+
+
+    }
+
+    &__label {
+        padding: 1rem 1rem 1rem 0;
+        display: inline-block;
+        font-weight: 700;
+    }
+
+    &__info {
+        font-size: 1.2rem;
+        font-weight: 700;
+        padding-left: 0.5rem;
+    }
+}
+
+.output {
+    width: 100%;
+    margin-top: 2rem;
+
+    &__wrapper {
+        box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+        padding: 1rem;
+    }
+
+    &__header {
+        margin: 1.2rem 0;
+    }
+
+    &__data {
+        font-size: 1.7rem;
+
+        &__span {
+            padding-left: .5rem;
+            font-weight: 700;
+        }
+    }
+
+
+}
+
+.error {
+    margin: 1rem 0;
+    color: $color-red;
+}
+
+.bounce {
+    outline: 0;
+    border-color: $color-red;
+    animation-name: bounce;
+    animation-duration: .5s;
+    animation-delay: 0.25s;
+}
+
+
+@keyframes bounce {
+    0% {
+        transform: translateX(0px);
+        timing-function: ease-in;
+    }
+
+    37% {
+        transform: translateX(10px);
+        timing-function: ease-out;
+    }
+
+    55% {
+        transform: translateX(-15px);
+        timing-function: ease-in;
+    }
+
+    73% {
+        transform: translateX(8px);
+        timing-function: ease-out;
+    }
+
+    82% {
+        transform: translateX(-8px);
+        timing-function: ease-in;
+    }
+
+    91% {
+        transform: translateX(5px);
+        timing-function: ease-out;
+    }
+
+    96% {
+        transform: translateX(-2px);
+        timing-function: ease-in;
+    }
+
+    100% {
+        transform: translateX(0px);
+        timing-function: ease-in;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .col-25,
+    .col-75 {
+        width: 100%;
+        margin-top: 1rem;
+    }
+}
